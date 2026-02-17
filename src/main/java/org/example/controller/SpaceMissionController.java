@@ -31,6 +31,7 @@ public class SpaceMissionController {
         this.missionService.printAllAstronauts();
 
         System.out.println("\n--- Task 4 ---");
+        this.missionService.writeAstronautsToFile();
 
     }
 }

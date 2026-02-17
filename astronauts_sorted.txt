@@ -1,0 +1,15 @@
+1 | Ava Ionescu | Orion | ACTIVE | skill=9
+9 | Ioana Rusu | Dragon | LOST | skill=9
+11 | Bianca Tudor | Orion | ACTIVE | skill=8
+7 | Clara Neagu | Starliner | INACTIVE | skill=8
+2 | Mihai Petrescu | Dragon | ACTIVE | skill=8
+10 | Daniel Voicu | Starliner | ACTIVE | skill=7
+3 | Elena Pop | Orion | INACTIVE | skill=7
+5 | Sofia Marin | Dragon | ACTIVE | skill=7
+14 | Teodor Matei | Orion | ACTIVE | skill=7
+12 | Horia Pascu | Dragon | INACTIVE | skill=6
+15 | Larisa Dobre | Dragon | ACTIVE | skill=6
+4 | Radu Stan | Starliner | ACTIVE | skill=6
+8 | Victor Iliescu | Orion | ACTIVE | skill=6
+6 | Andrei Dumitru | Orion | ACTIVE | skill=5
+13 | Nadia Ene | Starliner | ACTIVE | skill=5

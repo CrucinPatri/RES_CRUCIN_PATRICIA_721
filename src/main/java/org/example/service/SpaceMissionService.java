@@ -58,7 +58,7 @@ public class SpaceMissionService {
 
     public void writeAstronautsToFile(){
         List<Astronaut> sorted = this.getsortedAstronauts();
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("tributes_sorted.txt"))){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("astronauts_sorted.txt"))){
             for(Astronaut t : sorted){
                 writer.write(t.toString());
                 writer.newLine();
@@ -67,6 +67,10 @@ public class SpaceMissionService {
         }catch(IOException e){
             e.printStackTrace();
         }
+
+    }
+
+    public void calculatePoints(){
 
     }
 
