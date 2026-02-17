@@ -8,9 +8,14 @@ import org.example.repository.AstronautRepository;
 import org.example.repository.MissionEventRepository;
 import org.example.repository.SupplyRepository;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SpaceMissionService {
@@ -43,6 +48,25 @@ public class SpaceMissionService {
         PrintStream var1 = System.out;
         Objects.requireNonNull(var1);
         var.forEach(var1::println);
+
+    }
+
+    public List<Astronaut> getsortedAstronauts(){
+        return this.astronauts.stream().sorted(Comparator.comparingInt(Astronaut::getExperienceLevel).reversed(). thenComparing(Astronaut::getName)).collect(Collectors.toList());
+
+    }
+
+    public void writeAstronautsToFile(){
+        List<Astronaut> sorted = this.getsortedAstronauts();
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("tributes_sorted.txt"))){
+            for(Astronaut t : sorted){
+                writer.write(t.toString());
+                writer.newLine();
+            }
+            System.out.println("Fisierul a fost creat");
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
     }
 

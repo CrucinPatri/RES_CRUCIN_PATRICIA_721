@@ -27,6 +27,10 @@ public class SpaceMissionController {
 //        String status = scanner.nextLine();
 //        this.missionService.filterBySpacecraftAndStatus(spacecraft, status).forEach(System.out::println);
 
+        System.out.println("\n--- Task3 ---");
+        this.missionService.printAllAstronauts();
+
+        System.out.println("\n--- Task 4 ---");
 
     }
 }
