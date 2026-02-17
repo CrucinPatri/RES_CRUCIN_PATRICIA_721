@@ -41,13 +41,19 @@ public class SpaceMissionService {
     }
 
     public void filterBySpacecraftAndStatus(String spacecraft){
-        System.out.println("Filter results (Spacecraft " + spacecraft + ", ALIVE):");
+        System.out.println("Filter results (Spacecraft " + spacecraft + ", ACTIVE):");
         Stream var = this.astronauts.stream().filter((t) -> t.getSpacecraft() == spacecraft && t.getStatus() == AstronautStatus.ACTIVE);
         PrintStream var1 = System.out;
         Objects.requireNonNull(var1);
         var.forEach(var1::println);
 
     }
+
+//    public List<Astronaut>filterBySpcecraftAndStatus(String spacecraft, AstronautStatus status) {
+//        return astronauts.stream()
+//                .filter(astronaut -> astronaut.getSpacecraft().equals(spacecraft) && astronaut.getStatus().equals(status))
+//                .toList();
+//    }
 
     public List<Astronaut> getsortedAstronauts(){
         return this.astronauts.stream().sorted(Comparator.comparingInt(Astronaut::getExperienceLevel).reversed(). thenComparing(Astronaut::getName)).collect(Collectors.toList());

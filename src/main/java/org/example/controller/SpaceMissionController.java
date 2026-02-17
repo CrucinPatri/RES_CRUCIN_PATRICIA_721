@@ -1,7 +1,9 @@
 package org.example.controller;
 
+import org.example.model.AstronautStatus;
 import org.example.service.SpaceMissionService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class SpaceMissionController {
@@ -12,11 +14,12 @@ public class SpaceMissionController {
         this.missionService.loadData();
         this.missionService.printAllAstronauts();
 
+
         System.out.println("\n--- Task2 ---");
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Input spacecraft: ");
-        if(scan.hasNext()){
-            String s = scan.nextLine();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input spacecraft: ");
+        if(sc.hasNext()){
+            String s = sc.nextLine();
             this.missionService.filterBySpacecraftAndStatus(s);
 
         }
