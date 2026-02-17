@@ -71,7 +71,22 @@ public class SpaceMissionService {
     }
 
     public void calculatePoints(){
+        int limit = Math.min(5, this.events.size());
+        for(int i = 0; i < limit; i++){
+            MissionEvent e = (MissionEvent) this.events.get(i);
+            int computedPoints = 0;
+            switch (e.getType()){
+                case EVA -> computedPoints = e.getBasePoints() + 2 * e.getDay();
+                case SYSTEM_FAILURE ->  computedPoints = e.getBasePoints() - 3 - e.getDay();
+                case SCIENCE ->   computedPoints = e.getBasePoints() + (4 + e.getDay());
+                case MEDICAL ->   computedPoints = e.getBasePoints() - 2 * (e.getDay()%3);
+                case COMMUNICATION ->   computedPoints = e.getBasePoints() + 5;
+            }
+            PrintStream var = System.out;
+            var.println("Event " + e.getType() + " -> rawPoints=" + e.getBasePoints() + " -> computedPoints=" + computedPoints);
+        }
 
     }
+
 
 }

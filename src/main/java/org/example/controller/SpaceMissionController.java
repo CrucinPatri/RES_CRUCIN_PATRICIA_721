@@ -33,5 +33,8 @@ public class SpaceMissionController {
         System.out.println("\n--- Task 4 ---");
         this.missionService.writeAstronautsToFile();
 
+        System.out.println("\n--- Task 5 ---");
+        this.missionService.calculatePoints();
+
     }
 }
