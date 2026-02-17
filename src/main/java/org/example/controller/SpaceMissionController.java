@@ -36,5 +36,10 @@ public class SpaceMissionController {
         System.out.println("\n--- Task 5 ---");
         this.missionService.calculatePoints();
 
+        System.out.println("\n--- Task 6 ---");
+
+        System.out.println("\n--- Task 7 ---");
+        this.missionService.generateEventReport("mission_report.txt");
+
     }
 }

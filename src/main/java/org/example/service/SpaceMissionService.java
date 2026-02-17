@@ -1,9 +1,6 @@
 package org.example.service;
 
-import org.example.model.Astronaut;
-import org.example.model.AstronautStatus;
-import org.example.model.MissionEvent;
-import org.example.model.Supply;
+import org.example.model.*;
 import org.example.repository.AstronautRepository;
 import org.example.repository.MissionEventRepository;
 import org.example.repository.SupplyRepository;
@@ -14,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -88,5 +86,23 @@ public class SpaceMissionService {
 
     }
 
+    public void generateEventReport(String filePath) {
+        Map<MissionEventType, Long> eventCounts = this.events.stream()
+                .collect(Collectors.groupingBy(MissionEvent::getType, Collectors.counting()));
+
+        List<Map.Entry<MissionEventType, Long>> sortedEventCounts = eventCounts.entrySet().stream()
+                .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
+                .toList();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Map.Entry<MissionEventType, Long> entry : sortedEventCounts) {
+                writer.write(entry.getKey() + " -> " + entry.getValue());
+                writer.newLine();
+            }
+            System.out.println("Event report generated successfully: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing event report: " + e.getMessage());
+        }
+    }
 
 }
